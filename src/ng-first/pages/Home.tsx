@@ -7,6 +7,20 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Link as RouterLink } from 'react-router-dom';
+import { APP_URLS } from '../../config/urls';
+import {
+  BusinessCenter,
+  LocalShipping,
+  Engineering,
+  School,
+  Security,
+  Assignment,
+  TrendingUp,
+  Group,
+  Public,
+  EmojiEvents
+} from '@mui/icons-material';
 
 const policyPoints = [
   {
@@ -226,9 +240,21 @@ const Home: React.FC = () => {
                     },
                   }}
                 >
-                  <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
-                    {String(index + 1).padStart(2, '0')}. {policy.title}
-                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    {policy.title.includes('Prioritizing Local Content') && <BusinessCenter sx={{ color: 'white' }} />}
+                    {policy.title.includes('Revised Procurement') && <GavelIcon sx={{ color: 'white' }} />}
+                    {policy.title.includes('Local Content Compliance') && <Assignment sx={{ color: 'white' }} />}
+                    {policy.title.includes('Register of Local') && <PeopleIcon sx={{ color: 'white' }} />}
+                    {policy.title.includes('No Foreign Procurement') && <SecurityIcon sx={{ color: 'white' }} />}
+                    {policy.title.includes('Technology Transfer') && <Engineering sx={{ color: 'white' }} />}
+                    {policy.title.includes('Audit and Revision') && <Assignment sx={{ color: 'white' }} />}
+                    {policy.title.includes('Sanctions') && <GavelIcon sx={{ color: 'white' }} />}
+                    {policy.title.includes('Promoting National Pride') && <EmojiEvents sx={{ color: 'white' }} />}
+                    {policy.title.includes('Government-Led') && <TrendingUpIcon sx={{ color: 'white' }} />}
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
+                      {String(index + 1).padStart(2, '0')}. {policy.title}
+                    </Typography>
+                  </Box>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="body1" color="text.secondary">

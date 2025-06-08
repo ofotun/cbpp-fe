@@ -58,6 +58,22 @@ const mockGuidelines: Guideline[] = [
     category: 'Finance',
     fileUrl: '/documents/budget-management-policy.pdf',
     lastUpdated: '2024-03-01'
+  },
+  {
+    id: 4,
+    title: 'Community Based Procurement Guidelines',
+    description: 'Detailed guidelines for implementing community-based procurement initiatives, including eligibility criteria, selection processes, and monitoring frameworks.',
+    category: 'Community',
+    fileUrl: '/documents/community-based-procurement-guidelines.pdf',
+    lastUpdated: '2024-03-20'
+  },
+  {
+    id: 5,
+    title: 'Health and Medical Equipment Procurement Standards',
+    description: 'Comprehensive standards and guidelines for the procurement of health and medical equipment, ensuring quality, safety, and compliance with international standards.',
+    category: 'Healthcare',
+    fileUrl: '/documents/health-medical-procurement-standards.pdf',
+    lastUpdated: '2024-03-18'
   }
 ];
 
