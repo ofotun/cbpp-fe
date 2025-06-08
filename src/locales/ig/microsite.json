@@ -1,0 +1,36 @@
+{
+  "home": {
+    "hero": {
+      "title": "Ịnyere Obodo Aka Site na Nzụkọ Doro Anya",
+      "subtitle": "Na-eme ka ọrụ mmepe obodo dị mfe site na platform anyị maka nzụkọ, njikwa ego, na nlekọta ọrụ.",
+      "signUp": "Debanye Aha Ugbu a",
+      "learnMore": "Mụtakwuo"
+    },
+    "features": {
+      "title": "Isi Ngalaba",
+      "subtitle": "Ịnyere Obodo Aka Site na Teknụzụ",
+      "items": {
+        "communityEngagement": {
+          "title": "Ntụgharị Uche Obodo",
+          "description": "Na-enye obodo ohere ịbanye na usoro nzụkọ gọọmentị."
+        },
+        "budgetManagement": {
+          "title": "Njikwa Ego",
+          "description": "Usoro dị mfe maka ịkesa na ịnyocha ego maka ọrụ obodo."
+        },
+        "projectOversight": {
+          "title": "Nlekọta Ọrụ",
+          "description": "Usoro zuru ezu maka ịnyocha na ịtụle ọrụ mmepe obodo."
+        },
+        "securePayments": {
+          "title": "Ịkwụ Ụgwọ Nchekwa",
+          "description": "Usoro doro anya na dị mma maka ịkwụ ụgwọ ọrụ obodo."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ị Kwadebere Ịgbanwe Obodo Gị?",
+      "subtitle": "Banye na Platform Nzụkọ Obodo taa wee bụrụ otu n'ime ndị na-agbanwe ihe."
+    }
+  }
+} 

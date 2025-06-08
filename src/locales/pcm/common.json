@@ -1,0 +1,62 @@
+{
+  "app": {
+    "name": "CBPP",
+    "fullName": "Community Based Public Procurement Mata"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "projects": "Projects Dem",
+    "contractors": "Contractors Dem",
+    "cbos": "Community Groups",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "metrics": {
+    "totalProjects": "All Projects Wey Dey",
+    "activeProjects": "Projects Wey Dey Work",
+    "completedProjects": "Projects Wey Don Complete",
+    "totalBudget": "Total Money Wey Dey",
+    "totalLGAs": "All Local Governments",
+    "totalCBOs": "All Community Groups",
+    "totalContractors": "All Contractors",
+    "activeContractors": "Contractors Wey Dey Work"
+  },
+  "actions": {
+    "view": "See Am",
+    "edit": "Change Am",
+    "delete": "Comot Am",
+    "save": "Save Am",
+    "cancel": "Cancel Am",
+    "submit": "Submit Am",
+    "filter": "Filter Am",
+    "search": "Find Something",
+    "export": "Export Am"
+  },
+  "accessibility": {
+    "skipToMain": "Jump go main content",
+    "toggleMenu": "Show/Hide menu",
+    "toggleTheme": "Change background",
+    "changeLanguage": "Change language"
+  },
+  "dates": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "lastWeek": "Last Week",
+    "lastMonth": "Last Month",
+    "lastYear": "Last Year"
+  },
+  "status": {
+    "active": "Dey Work",
+    "inactive": "No Dey Work",
+    "pending": "Dey Wait",
+    "completed": "Don Complete",
+    "inProgress": "Dey Progress"
+  },
+  "errors": {
+    "required": "You must fill this one",
+    "invalid": "Wetin you put no correct",
+    "networkError": "Network wahala don happen",
+    "unauthorized": "You no get permission",
+    "notFound": "We no see am"
+  }
+} 

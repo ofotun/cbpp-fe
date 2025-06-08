@@ -1,0 +1,62 @@
+{
+  "app": {
+    "name": "CBPP",
+    "fullName": "Community Based Public Procurement"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "contractors": "Contractors",
+    "cbos": "CBOs",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "metrics": {
+    "totalProjects": "Total Projects",
+    "activeProjects": "Active Projects",
+    "completedProjects": "Completed Projects",
+    "totalBudget": "Total Budget",
+    "totalLGAs": "Total LGAs",
+    "totalCBOs": "Total CBOs",
+    "totalContractors": "Total Contractors",
+    "activeContractors": "Active Contractors"
+  },
+  "actions": {
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "filter": "Filter",
+    "search": "Search",
+    "export": "Export"
+  },
+  "accessibility": {
+    "skipToMain": "Skip to main content",
+    "toggleMenu": "Toggle menu",
+    "toggleTheme": "Toggle theme",
+    "changeLanguage": "Change language"
+  },
+  "dates": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "lastWeek": "Last Week",
+    "lastMonth": "Last Month",
+    "lastYear": "Last Year"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "completed": "Completed",
+    "inProgress": "In Progress"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalid": "Invalid input",
+    "networkError": "Network error occurred",
+    "unauthorized": "Unauthorized access",
+    "notFound": "Not found"
+  }
+} 

@@ -1,0 +1,36 @@
+{
+  "home": {
+    "hero": {
+      "title": "We Dey Give Power to Communities Through Better Procurement",
+      "subtitle": "We dey make am easy for community development projects with our platform wey dey handle procurement, money matters, and project monitoring.",
+      "signUp": "Join Now",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "title": "Wetin We Get",
+      "subtitle": "We Dey Use Technology Help Communities",
+      "items": {
+        "communityEngagement": {
+          "title": "Community Participation",
+          "description": "We dey give local communities power to join for government procurement process."
+        },
+        "budgetManagement": {
+          "title": "Money Management",
+          "description": "Better way to share and follow money for community projects."
+        },
+        "projectOversight": {
+          "title": "Project Monitoring",
+          "description": "Complete way to check and evaluate community development work."
+        },
+        "securePayments": {
+          "title": "Secure Payment",
+          "description": "Clear and better way to pay for community projects."
+        }
+      }
+    },
+    "cta": {
+      "title": "You Ready to Change Your Community?",
+      "subtitle": "Join our Community-Based Procurement Platform today and be part of better change for procurement."
+    }
+  }
+} 

@@ -1,0 +1,36 @@
+{
+  "home": {
+    "hero": {
+      "title": "Fún Àwùjọ Ní Agbára Nípasẹ̀ Ìgbéjáde Tó Hàn Gbangba",
+      "subtitle": "Ń mú kí àwọn iṣẹ́ ìdàgbàsókè àwùjọ rọrùn pẹ̀lú platform wa fún ìgbéjáde, ìṣàkóso owó, àti ìbójútó iṣẹ́.",
+      "signUp": "Forúkọ Sílẹ̀ Báyìí",
+      "learnMore": "Kẹ́kọ̀ọ́ Síi"
+    },
+    "features": {
+      "title": "Àwọn Ẹ̀yà Pàtàkì",
+      "subtitle": "Ń Fún Àwùjọ Ní Agbára Nípasẹ̀ Ìmọ̀-ẹ̀rọ",
+      "items": {
+        "communityEngagement": {
+          "title": "Ìkópa Àwùjọ",
+          "description": "Ń fún àwọn àwùjọ ní agbára láti kópa nínú ìgbéjáde ìjọba."
+        },
+        "budgetManagement": {
+          "title": "Ìṣàkóso Owó",
+          "description": "Ọ̀nà tó rọrùn fún pínpín àti mímójútó owó fún àwọn iṣẹ́ àwùjọ."
+        },
+        "projectOversight": {
+          "title": "Ìbójútó Iṣẹ́",
+          "description": "Ọ̀nà tó péye láti ṣàyẹ̀wò àti díńwọ́n àwọn iṣẹ́ ìdàgbàsókè àwùjọ."
+        },
+        "securePayments": {
+          "title": "Ìsanwó Aláàbò",
+          "description": "Ọ̀nà tó hàn gbangba àti dára fún sísan owó àwọn iṣẹ́ àwùjọ."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ṣe O Ṣetán Láti Yí Àwùjọ Rẹ Padà?",
+      "subtitle": "Darapọ̀ mọ́ Platform Ìgbéjáde Àwùjọ lóní kí o sì jẹ́ apá kan nínú ìyípadà."
+    }
+  }
+} 

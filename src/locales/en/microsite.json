@@ -1,0 +1,36 @@
+{
+  "home": {
+    "hero": {
+      "title": "Empowering Communities Through Transparent Procurement",
+      "subtitle": "Streamlining community development projects with our integrated platform for procurement, budget management, and project oversight.",
+      "signUp": "Sign Up Now",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "title": "Key Features",
+      "subtitle": "Empowering Communities Through Technology",
+      "items": {
+        "communityEngagement": {
+          "title": "Community Engagement",
+          "description": "Empower local communities through direct participation in government procurement processes."
+        },
+        "budgetManagement": {
+          "title": "Budget Management",
+          "description": "Streamlined budget allocation and tracking for community-based projects."
+        },
+        "projectOversight": {
+          "title": "Project Oversight",
+          "description": "Comprehensive monitoring and evaluation of community development initiatives."
+        },
+        "securePayments": {
+          "title": "Secure Payments",
+          "description": "Transparent and efficient payment processing for community projects."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Community?",
+      "subtitle": "Join the Community-Based Procurement Platform today and be part of the change in public procurement."
+    }
+  }
+} 

@@ -1,0 +1,36 @@
+{
+  "home": {
+    "hero": {
+      "title": "Ƙarfafa Al'ummomi Ta Hanyar Sayen Kaya Da Adalci",
+      "subtitle": "Muna sauƙaƙa ayyukan ci gaban al'umma tare da dandamalinmu na sayen kaya, gudanar da kuɗi, da kuma lura da ayyuka.",
+      "signUp": "Yi Rajista Yanzu",
+      "learnMore": "Ƙara Koyi"
+    },
+    "features": {
+      "title": "Mahimman Abubuwa",
+      "subtitle": "Ƙarfafa Al'ummomi Ta Hanyar Fasaha",
+      "items": {
+        "communityEngagement": {
+          "title": "Shiga Tsakanin Al'umma",
+          "description": "Bawa al'ummomi damar shiga cikin harkokin sayen kayan gwamnati."
+        },
+        "budgetManagement": {
+          "title": "Gudanar da Kuɗi",
+          "description": "Hanya mai sauƙi don rarraba da kuma lura da kuɗi na ayyukan al'umma."
+        },
+        "projectOversight": {
+          "title": "Lura da Ayyuka",
+          "description": "Cikakken hanya don duba da kimanta ayyukan ci gaban al'umma."
+        },
+        "securePayments": {
+          "title": "Biyan Kuɗi Mai Tsaro",
+          "description": "Hanya mai tsabta da kuma kyau don biyan kuɗin ayyukan al'umma."
+        }
+      }
+    },
+    "cta": {
+      "title": "Kun Shirya Don Canja Al'ummarku?",
+      "subtitle": "Ku shiga Dandamalin Sayen Kayan Al'umma yau don kasancewa ɓangaren canjin."
+    }
+  }
+} 
