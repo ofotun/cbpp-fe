@@ -31,11 +31,11 @@ const MicrositeLayout = () => {
   };
 
   const menuItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Processes', path: '/processes' },
-    { label: 'FAQ', path: '/faq' },
-    { label: 'Partners', path: '/partners' },
+    { label: 'Home', path: '/cbpp' },
+    { label: 'About', path: '/cbpp/about' },
+    { label: 'Processes', path: '/cbpp/processes' },
+    { label: 'FAQ', path: '/cbpp/faq' },
+    { label: 'Partners', path: '/cbpp/partners' },
   ];
 
   const drawer = (
@@ -61,7 +61,16 @@ const MicrositeLayout = () => {
             </ListItemButton>
           </ListItem>
         ))}
-        <ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            component={RouterLink}
+            to="/"
+            sx={{ textAlign: 'center' }}
+          >
+            <ListItemText primary="NIGERIA FIRST" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
           <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <LanguageSelector />
           </Box>
@@ -93,7 +102,7 @@ const MicrositeLayout = () => {
           <Toolbar disableGutters>
             <Box
               component={RouterLink}
-              to="/"
+              to="/cbpp"
               sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -147,11 +156,20 @@ const MicrositeLayout = () => {
                     {item.label}
                   </Button>
                 ))}
+                <Button
+                  color="inherit"
+                  component={RouterLink}
+                  to="/"
+                  sx={{ fontWeight: 600 }}
+                >
+                  NIGERIA FIRST
+                </Button>
                 <LanguageSelector />
                 <Button
                   variant="outlined"
                   color="primary"
-                  onClick={() => navigate('/signup')}
+                  component={RouterLink}
+                  to="/signup"
                   sx={{ fontWeight: 600 }}
                 >
                   Sign Up
@@ -159,7 +177,8 @@ const MicrositeLayout = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => navigate('/login')}
+                  component={RouterLink}
+                  to="/login"
                   sx={{ fontWeight: 600 }}
                 >
                   Login
@@ -226,6 +245,21 @@ const MicrositeLayout = () => {
                     </ListItemButton>
                   </ListItem>
                 ))}
+                <ListItem disablePadding sx={{ mb: 1 }}>
+                  <ListItemButton
+                    component={RouterLink}
+                    to="/"
+                    sx={{ p: 0 }}
+                  >
+                    <ListItemText
+                      primary="NIGERIA FIRST"
+                      primaryTypographyProps={{
+                        variant: 'body2',
+                        color: 'text.secondary',
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
               </List>
             </Grid>
             <Grid item xs={12} md={4}>
