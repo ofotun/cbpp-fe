@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Container, Typography, Grid, Card, CardContent, CardActions, Button, Divider, Accordion, AccordionSummary, AccordionDetails, useTheme, useMediaQuery, IconButton } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Container, Typography, Grid, Card, CardContent, Accordion, AccordionSummary, AccordionDetails, useTheme } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SecurityIcon from '@mui/icons-material/Security';
 import PeopleIcon from '@mui/icons-material/People';
@@ -64,109 +64,178 @@ const platforms = [
   }
 ];
 
+const backgroundImages = [
+  '/images/about/community-empowerment.png',
+  '/images/about/transparent-procurement.png',
+  '/images/about/compliance-oversight.png',
+  '/images/features/community-engagement.jpg',
+  '/images/features/project-oversight.jpg',
+  '/images/about/economic-growth.png',
+  '/images/features/budget-management.jpg',
+  '/images/features/secure-payments.jpg',
+  '/images/about/community-empowerment.png',
+  '/images/about/economic-growth.png'
+];
+
 const Home: React.FC = () => {
+  const theme = useTheme();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Box>
+      {/* Hero Section */}
+      <Box
+        sx={{
+          position: 'relative',
+          height: '80vh',
+          minHeight: '600px',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+          textAlign: 'center'
+        }}
+      >
+        {/* Background Images Carousel */}
+        {backgroundImages.map((image, index) => (
+          <Box
+            key={index}
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              opacity: currentImageIndex === index ? 1 : 0,
+              transition: 'opacity 1s ease-in-out',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: `linear-gradient(135deg, ${theme.palette.primary.main}cc 0%, ${theme.palette.primary.dark}cc 100%)`,
+                zIndex: 1,
+              },
+            }}
+          >
+            <Box
+              component="img"
+              src={image}
+              alt={`Background ${index + 1}`}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
+          </Box>
+        ))}
+
+        {/* Hero Content */}
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+          <Grid container spacing={4} alignItems="center" justifyContent="center">
+            <Grid item xs={12} md={3}>
+              <Box
+                component="img"
+                src="/images/logos/coat-of-arms.png"
+                alt="Nigerian Coat of Arms"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  height: 'auto'
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant="h2"
+                component="h1"
+                gutterBottom
+                sx={{
+                  fontWeight: 700,
+                  fontSize: { xs: '3rem', md: '4.5rem' },
+                  lineHeight: 1.2,
+                  mb: 2,
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                  color: 'white'
+                }}
+              >
+                The Nigeria First Policy
+              </Typography>
+              <Typography
+                variant="h5"
+                sx={{
+                  maxWidth: '800px',
+                  mx: 'auto',
+                  mb: 4,
+                  fontSize: { xs: '1.5rem', md: '2rem' },
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                  color: 'white'
+                }}
+              >
+                A comprehensive framework for promoting local content and national development
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={3}>
+              <Box
+                component="img"
+                src="/images/logos/bpp-logo-transparent.png"
+                alt="Bureau of Public Procurement"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  height: 'auto'
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
       {/* Policy Points Section */}
-      <Box sx={{ py: 8, backgroundColor: 'grey.50' }}>
+      <Box sx={{ py: 8, backgroundColor: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ mb: 6, textAlign: 'center' }}>
             <Typography variant="h3" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
-              The Nigeria First Policy
-            </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '800px', mx: 'auto' }}>
-              A comprehensive framework for promoting local content and national development
+              Policy Points
             </Typography>
           </Box>
 
-          {/* Policy Points - Two Column Layout */}
-          <Box>
-            {[
-              {
-                title: '01. Prioritizing Local Content',
-                desc: 'The policy prioritizes locally made goods and homegrown solutions in all government procurements, ensuring that Nigerian businesses and industries are given preference in government contracts and purchases.',
-                img: '/images/about/community-empowerment.png',
-                alt: 'Prioritizing Local Content',
-              },
-              {
-                title: '02. Revised Procurement Guidelines',
-                desc: 'The Bureau of Public Procurement (BPP) will revise and enforce procurement guidelines to favor local suppliers, creating a more supportive environment for Nigerian businesses to participate in government procurement.',
-                img: '/images/about/transparent-procurement.png',
-                alt: 'Revised Procurement Guidelines',
-              },
-              {
-                title: '03. Local Content Compliance Framework',
-                desc: 'A comprehensive framework will be created to ensure compliance with local content requirements in all government procurements, establishing clear guidelines and monitoring mechanisms.',
-                img: '/images/about/compliance-oversight.png',
-                alt: 'Local Content Compliance Framework',
-              },
-              {
-                title: '04. Register of Local Suppliers',
-                desc: 'The BPP will maintain a register of high-quality Nigerian manufacturers and service providers, making it easier for government agencies to identify and engage with qualified local suppliers.',
-                img: '/images/features/community-engagement.jpg',
-                alt: 'Register of Local Suppliers',
-              },
-              {
-                title: '05. No Foreign Procurement Without Justification',
-                desc: 'Foreign goods or services will only be procured with proper justification and a written waiver from the BPP, ensuring that local alternatives are thoroughly considered first.',
-                img: '/images/features/project-oversight.jpg',
-                alt: 'Foreign Procurement Control',
-              },
-              {
-                title: '06. Technology Transfer and Skills Development',
-                desc: 'Contracts for foreign goods or services must include provisions for technology transfer, local production, or skills development, ensuring that Nigerian capabilities are enhanced through such partnerships.',
-                img: '/images/about/economic-growth.png',
-                alt: 'Technology Transfer',
-              },
-              {
-                title: '07. Audit and Revision of Procurement Plans',
-                desc: 'All Ministries, Departments, and Agencies (MDAs) must conduct an immediate audit of procurement plans and submit revised versions in line with the policy, ensuring full compliance with local content requirements.',
-                img: '/images/features/budget-management.jpg',
-                alt: 'Procurement Audit',
-              },
-              {
-                title: '08. Sanctions for Non-Compliance',
-                desc: 'Breaches of the policy will attract sanctions, including cancellation of procurement and disciplinary action against responsible officers, ensuring strict adherence to the policy guidelines.',
-                img: '/images/features/secure-payments.jpg',
-                alt: 'Policy Compliance',
-              },
-              {
-                title: '09. Promoting National Pride and Self-Belief',
-                desc: 'The policy aims to promote a new era of local enterprise, self-belief, and national pride, encouraging Nigerians to support and take pride in locally made products and services.',
-                img: '/images/about/community-empowerment.png',
-                alt: 'National Pride',
-              },
-              {
-                title: '10. Government-Led Initiative',
-                desc: 'The investment will be led by example by government in Nigerian industries and changing how it spends, procures, and builds, setting a standard for other sectors to follow.',
-                img: '/images/about/economic-growth.png',
-                alt: 'Government Leadership',
-              },
-            ].map((policy, idx) => (
-              <Grid container spacing={4} alignItems="center" sx={{ mb: 6 }} key={policy.title}>
-                <Grid item xs={12} md={5}>
-                  <Box
-                    component="img"
-                    src={policy.img}
-                    alt={policy.alt}
-                    sx={{
-                      width: '100%',
-                      height: { xs: 200, md: 260 },
-                      objectFit: 'cover',
-                      borderRadius: 2,
-                      boxShadow: 3,
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} md={7}>
-                  <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1 }}>
-                    {policy.title}
+          {/* Policy Points - Accordion Layout */}
+          <Box sx={{ maxWidth: '800px', mx: 'auto' }}>
+            {policyPoints.map((policy, index) => (
+              <Accordion key={policy.title} sx={{ mb: 2 }}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+                  sx={{
+                    backgroundColor: theme.palette.primary.main,
+                    color: 'white',
+                    '&:hover': {
+                      backgroundColor: theme.palette.primary.dark,
+                    },
+                  }}
+                >
+                  <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'white' }}>
+                    {String(index + 1).padStart(2, '0')}. {policy.title}
                   </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
                   <Typography variant="body1" color="text.secondary">
-                    {policy.desc}
+                    {policy.description}
                   </Typography>
-                </Grid>
-              </Grid>
+                </AccordionDetails>
+              </Accordion>
             ))}
           </Box>
         </Container>
