@@ -15,6 +15,7 @@ import { SignupPage } from './microsite/pages/Signup';
 import { AboutPage } from './microsite/pages/About';
 import { MicrositeLayout } from './microsite/components/MicrositeLayout';
 import { SignupLayout } from './microsite/components/SignupLayout';
+import NgFirstRoutes from './ng-first/routes';
 import CBORegistration from './pages/registration/CBORegistration';
 import PCORegistration from './pages/registration/PCORegistration';
 import ContractorRegistration from './pages/registration/ContractorRegistration';
@@ -44,8 +45,11 @@ function App() {
       <AppProvider>
         <NavigationProvider>
           <Routes>
-            {/* Public Microsite Routes */}
-            <Route path="/" element={<MicrositeLayout />}>
+            {/* Nigeria First Main Routes */}
+            <Route path="/*" element={<NgFirstRoutes />} />
+
+            {/* CBPP Microsite Routes */}
+            <Route path="/cbpp/*" element={<MicrositeLayout />}>
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />
               <Route path="processes" element={<ProcessesPage />} />
