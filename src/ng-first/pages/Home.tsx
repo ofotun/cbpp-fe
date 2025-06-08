@@ -58,8 +58,8 @@ const platforms = [
     path: '/cbpp'
   },
   {
-    title: 'Health and Medical Procurement Policy (HMPP)',
-    description: 'Streamlining healthcare procurement processes and ensuring quality medical supplies.',
+    title: 'Local Manufacturers and Service Providers Register Platform (LMSPR)',
+    description: 'A comprehensive registry of qualified Nigerian manufacturers and service providers, facilitating easy access to local suppliers for government procurement.',
     path: '/hmpp'
   }
 ];
@@ -180,7 +180,7 @@ const Home: React.FC = () => {
         <Grid container spacing={4}>
           {platforms.map((platform) => (
             <Grid item xs={12} md={6} key={platform.title}>
-              <Card>
+              <Card sx={{ height: '100%' }}>
                 <CardContent>
                   <Typography variant="h5" component="h3" gutterBottom>
                     {platform.title}
