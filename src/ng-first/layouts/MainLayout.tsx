@@ -57,12 +57,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       </MenuItem>
       <MenuItem 
         component="a" 
-        href={APP_URLS.HMPP}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#"
         onClick={handlePlatformsClose}
       >
-        HMPP
+        LMSPR
       </MenuItem>
     </Menu>
   );
@@ -111,9 +109,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               display: 'flex',
               alignItems: 'center',
               textDecoration: 'none',
-              flexGrow: 1
+              flexGrow: 1,
+              gap: 2
             }}
           >
+            <img
+              src="/images/logos/coat-of-arms.png"
+              alt="Nigerian Coat of Arms"
+              style={{
+                height: '80px'
+              }}
+            />
             <img
               src="/images/ng-first/ng-first-badge.jpg"
               alt="Nigeria First Initiative"
@@ -127,7 +133,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <Box sx={{ 
             display: { xs: 'none', md: 'flex' }, 
             gap: 3,
-            ml: 4
+            ml: 4,
+            alignItems: 'center'
           }}>
             <Button
               color="primary"
@@ -215,6 +222,26 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             >
               BPP
             </Button>
+            <Box
+              component="a"
+              href={APP_URLS.BPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                ml: 2
+              }}
+            >
+              <img
+                src="/images/logos/bpp-logo.png"
+                alt="Bureau of Public Procurement"
+                style={{
+                  height: '60px'
+                }}
+              />
+            </Box>
           </Box>
 
           {/* Mobile Menu Button */}
@@ -274,7 +301,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Link component={RouterLink} to="/about" color="inherit" underline="none">About</Link>
                 <Link component={RouterLink} to="/guidelines" color="inherit" underline="none">Guidelines</Link>
                 <Link href={APP_URLS.CBPP} color="inherit" underline="none">CBPP</Link>
-                <Link href={APP_URLS.HMPP} color="inherit" underline="none">HMPP</Link>
+                <Link href="#" color="inherit" underline="none">LMSPR</Link>
                 <Link href={APP_URLS.BPP} color="inherit" underline="none">BPP</Link>
               </Box>
             </Grid>
@@ -284,11 +311,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Bureau of Public Procurement<br />
-                Federal Secretariat Complex<br />
-                Shehu Shagari Way, Central Business District<br />
-                Abuja, Nigeria<br />
-                Email: info@bpp.gov.ng<br />
-                Phone: +234 123 456 7890
+                No. 11 Suleiman Barau Crescent<br />
+                Presidential Villa, Abuja<br />
+                Tel: 08171217369, 08158162418<br />
+                Fax: 09-6252379<br />
+                Email: ccspsupport@bpp.gov.ng
               </Typography>
             </Grid>
           </Grid>
