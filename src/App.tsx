@@ -15,7 +15,6 @@ import { SignupPage } from './microsite/pages/Signup';
 import { AboutPage } from './microsite/pages/About';
 import { MicrositeLayout } from './microsite/components/MicrositeLayout';
 import { SignupLayout } from './microsite/components/SignupLayout';
-import NgFirstRoutes from './ng-first/routes';
 import CBORegistration from './pages/registration/CBORegistration';
 import PCORegistration from './pages/registration/PCORegistration';
 import ContractorRegistration from './pages/registration/ContractorRegistration';
@@ -45,11 +44,8 @@ function App() {
       <AppProvider>
         <NavigationProvider>
           <Routes>
-            {/* Nigeria First Main Routes */}
-            <Route path="/*" element={<NgFirstRoutes />} />
-
-            {/* CBPP Microsite Routes */}
-            <Route path="/cbpp/*" element={<MicrositeLayout />}>
+            {/* Main Microsite Routes */}
+            <Route path="/" element={<MicrositeLayout />}>
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />
               <Route path="processes" element={<ProcessesPage />} />
@@ -66,79 +62,24 @@ function App() {
             <Route path="/login" element={<Login />} />
 
             {/* Protected Application Routes */}
-            <Route 
-              path="/app" 
-              element={
-                <ProtectedRoute>
-                  <Layout />
-                </ProtectedRoute>
-              }
-            >
+            <Route path="/app" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/app/dashboard" replace />} />
-              <Route path="dashboard">
-                <Route index element={<Navigate to="/app/dashboard/overview" replace />} />
-                <Route path="overview" element={<OverviewDashboard />} />
-                <Route path="executive" element={<ExecutiveDashboard />} />
-              </Route>
-              
-              {/* Registration & Qualification */}
+              <Route path="dashboard" element={<OverviewDashboard />} />
+              <Route path="executive-dashboard" element={<ExecutiveDashboard />} />
               <Route path="registration">
                 <Route path="cbo" element={<CBORegistration />} />
                 <Route path="pco" element={<PCORegistration />} />
                 <Route path="contractor" element={<ContractorRegistration />} />
               </Route>
-
-              {/* Budget Interface */}
-              <Route path="budget">
-                <Route path="management" element={<BudgetInterface />} />
-                <Route path="integration" element={<BudgetInterface />} />
-                <Route path="eligibility" element={<BudgetInterface />} />
-              </Route>
-
-              {/* Procurement Process */}
-              <Route path="procurement">
-                <Route path="planning" element={<ProcurementProcess />} />
-                <Route path="tendering" element={<ProcurementProcess />} />
-                <Route path="contracts" element={<ProcurementProcess />} />
-              </Route>
-
-              {/* Project Implementation */}
-              <Route path="projects">
-                <Route path="tracking" element={<ProjectImplementation />} />
-                <Route path="oversight" element={<ProjectImplementation />} />
-              </Route>
-
-              {/* Payment & Financial */}
-              <Route path="payments">
-                <Route path="processing" element={<PaymentFinancial />} />
-                <Route path="reporting" element={<PaymentFinancial />} />
-              </Route>
-
-              {/* Analytics & Reporting */}
-              <Route path="analytics">
-                <Route path="dashboard" element={<AnalyticsReporting />} />
-                <Route path="impact" element={<AnalyticsReporting />} />
-              </Route>
-
-              {/* Learning & Development */}
-              <Route path="learning">
-                <Route path="training" element={<div>Training Platform</div>} />
-                <Route path="knowledge" element={<div>Knowledge Base</div>} />
-              </Route>
-
-              {/* Settings */}
-              <Route path="settings" element={<div>Settings</div>} />
-              
-              {/* Additional routes for card navigation */}
-              <Route path="vendors" element={<div>Vendors Content</div>} />
-              <Route path="inventory" element={<div>Inventory Content</div>} />
-              <Route path="reports/*" element={<div>Reports Content</div>} />
-              <Route path="training" element={<div>Training Content</div>} />
-              <Route path="integration" element={<div>Integration Content</div>} />
-
-              {/* Catch all route */}
-              <Route path="*" element={<Navigate to="/app/dashboard" replace />} />
+              <Route path="budget" element={<BudgetInterface />} />
+              <Route path="procurement" element={<ProcurementProcess />} />
+              <Route path="project" element={<ProjectImplementation />} />
+              <Route path="payment" element={<PaymentFinancial />} />
+              <Route path="analytics" element={<AnalyticsReporting />} />
             </Route>
+
+            {/* Catch all route */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </NavigationProvider>
       </AppProvider>
