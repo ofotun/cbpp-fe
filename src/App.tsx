@@ -64,18 +64,64 @@ function App() {
             {/* Protected Application Routes */}
             <Route path="/app" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/app/dashboard" replace />} />
+              
+              {/* Dashboard Routes */}
               <Route path="dashboard" element={<OverviewDashboard />} />
+              <Route path="dashboard/overview" element={<OverviewDashboard />} />
+              <Route path="dashboard/executive" element={<ExecutiveDashboard />} />
               <Route path="executive-dashboard" element={<ExecutiveDashboard />} />
+              
+              {/* Registration Routes */}
               <Route path="registration">
                 <Route path="cbo" element={<CBORegistration />} />
                 <Route path="pco" element={<PCORegistration />} />
                 <Route path="contractor" element={<ContractorRegistration />} />
               </Route>
-              <Route path="budget" element={<BudgetInterface />} />
+              
+              {/* Procurement Routes */}
+              <Route path="procurement">
+                <Route path="planning" element={<ProcurementProcess />} />
+                <Route path="requests" element={<ProcurementProcess />} />
+                <Route path="tenders" element={<ProcurementProcess />} />
+                <Route path="contracts" element={<ProcurementProcess />} />
+              </Route>
               <Route path="procurement" element={<ProcurementProcess />} />
+              
+              {/* Budget Routes */}
+              <Route path="budget">
+                <Route path="allocation" element={<BudgetInterface />} />
+                <Route path="expenditure" element={<BudgetInterface />} />
+              </Route>
+              <Route path="budget" element={<BudgetInterface />} />
+              
+              {/* Project Implementation Routes */}
+              <Route path="projects">
+                <Route path="tracking" element={<ProjectImplementation />} />
+                <Route path="oversight" element={<ProjectImplementation />} />
+              </Route>
               <Route path="project" element={<ProjectImplementation />} />
+              
+              {/* Payment & Financial Routes */}
+              <Route path="payments">
+                <Route path="processing" element={<PaymentFinancial />} />
+                <Route path="reporting" element={<PaymentFinancial />} />
+              </Route>
               <Route path="payment" element={<PaymentFinancial />} />
+              
+              {/* Analytics & Reporting Routes */}
+              <Route path="reports">
+                <Route path="procurement" element={<AnalyticsReporting />} />
+                <Route path="financial" element={<AnalyticsReporting />} />
+                <Route path="audit" element={<AnalyticsReporting />} />
+              </Route>
               <Route path="analytics" element={<AnalyticsReporting />} />
+              
+              {/* Additional Routes */}
+              <Route path="vendors" element={<div>Vendors Management (Coming Soon)</div>} />
+              <Route path="inventory" element={<div>Inventory Management (Coming Soon)</div>} />
+              <Route path="training" element={<div>Training Platform (Coming Soon)</div>} />
+              <Route path="integration" element={<div>Integration Management (Coming Soon)</div>} />
+              <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
             </Route>
 
             {/* Catch all route */}
