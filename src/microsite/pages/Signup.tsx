@@ -14,6 +14,7 @@ import {
   Select,
   MenuItem,
   SelectChangeEvent,
+  Link,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -214,7 +215,25 @@ export const SignupPage: React.FC = () => {
 
             <Box sx={{ mt: 4, textAlign: 'center' }}>
               <Typography variant="body2" color="text.secondary">
-                By registering, you agree to our terms of service and privacy policy.
+                By registering, you agree to our{' '}
+                <Link
+                  component="button"
+                  variant="body2"
+                  onClick={() => navigate('/terms')}
+                  sx={{ textDecoration: 'underline' }}
+                >
+                  Terms of Service
+                </Link>
+                {' '}and{' '}
+                <Link
+                  component="button"
+                  variant="body2"
+                  onClick={() => navigate('/privacy')}
+                  sx={{ textDecoration: 'underline' }}
+                >
+                  Privacy Policy
+                </Link>
+                .
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                 Additional information will be auto-populated during BVN verification.
