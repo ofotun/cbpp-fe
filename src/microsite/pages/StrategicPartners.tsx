@@ -32,6 +32,7 @@ export const StrategicPartnersPage: React.FC = () => {
       icon: <AccountBalanceIcon sx={{ color: theme.palette.primary.main }} />,
       partners: [
         'Bureau of Public Procurement (BPP)',
+        'Budget Office of the Federation (BOF)',
         'Federal Ministry of Finance',
         'Economic and Financial Crimes Commission (EFCC)',
         'Independent Corrupt Practices Commission (ICPC)',
