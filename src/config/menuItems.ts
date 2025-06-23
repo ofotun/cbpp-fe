@@ -58,6 +58,12 @@ const menuItems: MenuItem[] = [
     description: 'Manage stakeholder registrations and qualifications',
     children: [
       {
+        id: 'registration-contractor',
+        title: 'Contractor Registration',
+        path: '/app/registration/contractor',
+        icon: BusinessIcon,
+      },
+      {
         id: 'registration-cbo',
         title: 'CBO Registration',
         path: '/app/registration/cbo',
@@ -68,12 +74,6 @@ const menuItems: MenuItem[] = [
         title: 'PCO Registration',
         path: '/app/registration/pco',
         icon: PeopleIcon,
-      },
-      {
-        id: 'registration-contractor',
-        title: 'Contractor Registration',
-        path: '/app/registration/contractor',
-        icon: BusinessIcon,
       },
     ],
   },

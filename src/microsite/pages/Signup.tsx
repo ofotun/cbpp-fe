@@ -6,20 +6,16 @@ import {
   Typography,
   TextField,
   Button,
-  MenuItem,
   Paper,
   useTheme,
   useMediaQuery,
   FormControl,
   InputLabel,
   Select,
+  MenuItem,
   SelectChangeEvent,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
-const userTypes = [
-  { value: 'contractor', label: 'Contractor' },
-];
 
 const states = [
   'Abia', 'Adamawa', 'Akwa Ibom', 'Anambra', 'Bauchi', 'Bayelsa', 'Benue', 'Borno',
@@ -29,28 +25,20 @@ const states = [
   'Sokoto', 'Taraba', 'Yobe', 'Zamfara'
 ];
 
-const genders = [
-  { value: 'male', label: 'Male' },
-  { value: 'female', label: 'Female' },
-  { value: 'other', label: 'Other' },
-];
-
-type UserType = 'cbo' | 'pco' | 'contractor';
-type Gender = 'male' | 'female' | 'other';
+// Mock LGA data - in a real app, this would be fetched based on selected state
+const lgasByState: { [key: string]: string[] } = {
+  'Lagos': ['Agege', 'Ajeromi-Ifelodun', 'Alimosho', 'Amuwo-Odofin', 'Apapa', 'Badagry', 'Epe', 'Eti-Osa', 'Ibeju-Lekki', 'Ifako-Ijaiye', 'Ikeja', 'Ikorodu', 'Kosofe', 'Lagos Island', 'Lagos Mainland', 'Mushin', 'Ojo', 'Oshodi-Isolo', 'Shomolu', 'Surulere'],
+  'Kano': ['Ajingi', 'Albasu', 'Bagwai', 'Bebeji', 'Bichi', 'Bunkure', 'Dala', 'Dambatta', 'Dawakin Kudu', 'Dawakin Tofa', 'Doguwa', 'Fagge', 'Gabasawa', 'Garko', 'Garum Mallam', 'Gaya', 'Gezawa', 'Gwale', 'Gwarzo', 'Kabo', 'Kano Municipal', 'Karaye', 'Kibiya', 'Kiru', 'Kumbotso', 'Kunchi', 'Kura', 'Madobi', 'Makoda', 'Minjibir', 'Nasarawa', 'Rano', 'Rimin Gado', 'Rogo', 'Shanono', 'Sumaila', 'Takai', 'Tarauni', 'Tofa', 'Tsanyawa', 'Tudun Wada', 'Ungogo', 'Warawa', 'Wudil'],
+  'Rivers': ['Abua-Odual', 'Ahoada East', 'Ahoada West', 'Akuku-Toru', 'Andoni', 'Asari-Toru', 'Bonny', 'Degema', 'Eleme', 'Emohua', 'Etche', 'Gokana', 'Ikwerre', 'Khana', 'Obio-Akpor', 'Ogba-Egbema-Ndoni', 'Ogu-Bolo', 'Okrika', 'Omuma', 'Opobo-Nkoro', 'Oyigbo', 'Port Harcourt', 'Tai'],
+  // Add more states as needed
+};
 
 interface FormData {
   firstName: string;
-  lastName: string;
-  dateOfBirth: string;
-  gender: Gender;
+  surname: string;
   bvn: string;
-  nin: string;
-  userType: UserType;
   state: string;
   lga: string;
-  address: string;
-  phone: string;
-  email: string;
 }
 
 export const SignupPage: React.FC = () => {
@@ -59,18 +47,12 @@ export const SignupPage: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
-    lastName: '',
-    dateOfBirth: '',
-    gender: 'male',
+    surname: '',
     bvn: '',
-    nin: '',
-    userType: 'cbo',
     state: '',
     lga: '',
-    address: '',
-    phone: '',
-    email: '',
   });
+  const [error, setError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
@@ -80,20 +62,31 @@ export const SignupPage: React.FC = () => {
       ...prev,
       [name]: value
     }));
+
+    // Reset LGA when state changes
+    if (name === 'state') {
+      setFormData(prev => ({
+        ...prev,
+        state: value,
+        lga: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // TODO: Implement signup logic
+      // TODO: Implement signup logic with BVN verification
       console.log('Form submitted:', formData);
       // Navigate to success page or dashboard after successful signup
       navigate('/signup/success');
     } catch (error) {
       console.error('Signup failed:', error);
-      // TODO: Show error message to user
+      setError('Signup failed. Please try again.');
     }
   };
+
+  const availableLgas = formData.state ? (lgasByState[formData.state] || []) : [];
 
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -116,12 +109,14 @@ export const SignupPage: React.FC = () => {
         {/* Signup Form */}
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
-            <Typography variant="h4" component="h1" gutterBottom>
-              Create Your Account
-            </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-              Join our platform and start your journey towards community development
-            </Typography>
+            <Box sx={{ textAlign: 'center', mb: 4 }}>
+              <Typography variant="h4" component="h1" gutterBottom>
+                Contractor Registration
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                Register as a contractor to participate in community-based procurement projects
+              </Typography>
+            </Box>
 
             <form onSubmit={handleSubmit}>
               <Grid container spacing={3}>
@@ -133,48 +128,21 @@ export const SignupPage: React.FC = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
+                    variant="outlined"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
                     fullWidth
-                    label="Last Name"
-                    name="lastName"
-                    value={formData.lastName}
+                    label="Surname"
+                    name="surname"
+                    value={formData.surname}
                     onChange={handleChange}
+                    variant="outlined"
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="Date of Birth"
-                    name="dateOfBirth"
-                    type="date"
-                    value={formData.dateOfBirth}
-                    onChange={handleChange}
-                    InputLabelProps={{ shrink: true }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <FormControl fullWidth required>
-                    <InputLabel>Gender</InputLabel>
-                    <Select
-                      name="gender"
-                      value={formData.gender}
-                      label="Gender"
-                      onChange={handleChange}
-                    >
-                      {genders.map((gender) => (
-                        <MenuItem key={gender.value} value={gender.value}>
-                          {gender.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
@@ -183,110 +151,75 @@ export const SignupPage: React.FC = () => {
                     value={formData.bvn}
                     onChange={handleChange}
                     inputProps={{ maxLength: 11 }}
+                    variant="outlined"
+                    helperText="Enter your 11-digit Bank Verification Number"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="NIN"
-                    name="nin"
-                    value={formData.nin}
-                    onChange={handleChange}
-                    inputProps={{ maxLength: 11 }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    select
-                    label="User Type"
-                    name="userType"
-                    value={formData.userType}
-                    onChange={handleChange}
-                  >
-                    {userTypes.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
+                  <FormControl fullWidth required>
+                    <InputLabel>State</InputLabel>
+                    <Select
+                      name="state"
+                      value={formData.state}
+                      label="State"
+                      onChange={handleChange}
+                    >
+                      {states.map((state) => (
+                        <MenuItem key={state} value={state}>
+                          {state}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    select
-                    label="State"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleChange}
-                  >
-                    {states.map((state) => (
-                      <MenuItem key={state} value={state}>
-                        {state}
-                      </MenuItem>
-                    ))}
-                  </TextField>
+                  <FormControl fullWidth required>
+                    <InputLabel>LGA</InputLabel>
+                    <Select
+                      name="lga"
+                      value={formData.lga}
+                      label="LGA"
+                      onChange={handleChange}
+                      disabled={!formData.state}
+                    >
+                      {availableLgas.map((lga) => (
+                        <MenuItem key={lga} value={lga}>
+                          {lga}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="LGA"
-                    name="lga"
-                    value={formData.lga}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="Address"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    multiline
-                    rows={2}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    label="Phone Number"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    type="tel"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Email (Optional)"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    type="email"
-                  />
-                </Grid>
+                {error && (
+                  <Grid item xs={12}>
+                    <Typography color="error" align="center">
+                      {error}
+                    </Typography>
+                  </Grid>
+                )}
                 <Grid item xs={12}>
                   <Button
                     type="submit"
                     variant="contained"
                     color="primary"
-                    size="large"
                     fullWidth
+                    size="large"
                     sx={{ mt: 2 }}
                   >
-                    Create Account
+                    Register as Contractor
                   </Button>
                 </Grid>
               </Grid>
             </form>
+
+            <Box sx={{ mt: 4, textAlign: 'center' }}>
+              <Typography variant="body2" color="text.secondary">
+                By registering, you agree to our terms of service and privacy policy.
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                Additional information will be auto-populated during BVN verification.
+              </Typography>
+            </Box>
           </Paper>
         </Grid>
       </Grid>
