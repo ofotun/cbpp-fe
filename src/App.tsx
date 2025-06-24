@@ -7,6 +7,7 @@ import { theme } from './theme';
 import Login from './pages/Login';
 import { ExecutiveDashboard, OverviewDashboard } from './pages/dashboard';
 import Layout from './components/Layout';
+import { EmptyDashboard } from './components/EmptyDashboard';
 import { HomePage } from './microsite/pages/Home';
 import { ProcessesPage } from './microsite/pages/Processes';
 import { FAQPage } from './microsite/pages/FAQ';
@@ -39,6 +40,37 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Role-based protected route component
+const RoleProtectedRoute = ({ 
+  children, 
+  allowedRoles 
+}: { 
+  children: React.ReactNode;
+  allowedRoles: string[];
+}) => {
+  const isAuthenticated = localStorage.getItem('user') !== null;
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // Check if user has the required role
+  const userData = localStorage.getItem('user');
+  if (userData) {
+    try {
+      const user = JSON.parse(userData);
+      if (!allowedRoles.includes(user.userType)) {
+        // Redirect to appropriate role dashboard
+        return <Navigate to={`/${user.userType}/dashboard`} replace />;
+      }
+    } catch (e) {
+      return <Navigate to="/login" replace />;
+    }
+  }
+  
+  return <>{children}</>;
+};
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -65,8 +97,8 @@ function App() {
             {/* Login Route */}
             <Route path="/login" element={<Login />} />
 
-            {/* Protected Application Routes */}
-            <Route path="/app" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
+            {/* Administrator Routes - Current Dashboard */}
+            <Route path="/app" element={<RoleProtectedRoute allowedRoles={['admin']}><Layout /></RoleProtectedRoute>}>
               <Route index element={<Navigate to="/app/dashboard" replace />} />
               
               {/* Dashboard Routes */}
@@ -126,6 +158,36 @@ function App() {
               <Route path="training" element={<div>Training Platform (Coming Soon)</div>} />
               <Route path="integration" element={<div>Integration Management (Coming Soon)</div>} />
               <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
+            </Route>
+
+            {/* Contractor Routes */}
+            <Route path="/contractor" element={<ProtectedRoute><EmptyDashboard role="contractor" /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/contractor/dashboard" replace />} />
+              <Route path="dashboard" element={<EmptyDashboard role="contractor" />} />
+            </Route>
+
+            {/* Procurement Officer Routes */}
+            <Route path="/procurement_officer" element={<ProtectedRoute><EmptyDashboard role="procurement_officer" /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/procurement_officer/dashboard" replace />} />
+              <Route path="dashboard" element={<EmptyDashboard role="procurement_officer" />} />
+            </Route>
+
+            {/* CBO Manager Routes */}
+            <Route path="/cbo_manager" element={<ProtectedRoute><EmptyDashboard role="cbo_manager" /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/cbo_manager/dashboard" replace />} />
+              <Route path="dashboard" element={<EmptyDashboard role="cbo_manager" />} />
+            </Route>
+
+            {/* Project Manager Routes */}
+            <Route path="/project_manager" element={<ProtectedRoute><EmptyDashboard role="project_manager" /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/project_manager/dashboard" replace />} />
+              <Route path="dashboard" element={<EmptyDashboard role="project_manager" />} />
+            </Route>
+
+            {/* Regulator Routes */}
+            <Route path="/regulator" element={<ProtectedRoute><EmptyDashboard role="regulator" /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/regulator/dashboard" replace />} />
+              <Route path="dashboard" element={<EmptyDashboard role="regulator" />} />
             </Route>
 
             {/* Catch all route */}

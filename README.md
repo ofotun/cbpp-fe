@@ -1,6 +1,7 @@
 # Community-Based Procurement Platform (CBPP)
 
-A comprehensive digital ecosystem for managing community-based procurement processes in Nigeria and across Africa. The platform enables community-based organizations (CBOs) to participate in government procurement processes up to ₦50 million in value, in alignment with President Bola Ahmed Tinubu's Renewed Hope Initiative.
+A comprehensive digital ecosystem for managing community-based procurement processes in Nigeria and across Africa. 
+The platform enables community-based organizations (CBOs) to participate in government procurement processes up to ₦50 million in value, in alignment with President Bola Ahmed Tinubu's Renewed Hope Initiative.
 
 ## 🌟 Features
 
