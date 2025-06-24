@@ -87,6 +87,17 @@ import EvaluatorGeolocation from './pages/evaluator/EvaluatorGeolocation';
 import EvaluatorAnalytics from './pages/evaluator/EvaluatorAnalytics';
 import EvaluatorSettings from './pages/evaluator/EvaluatorSettings';
 
+// BPP Admin Components
+import BPPAdminLayout from './layouts/BPPAdminLayout';
+import BPPAdminDashboard from './pages/bpp_admin/BPPAdminDashboard';
+import BPPAdminProfile from './pages/bpp_admin/BPPAdminProfile';
+import BPPAdminTenders from './pages/bpp_admin/BPPAdminTenders';
+import BPPAdminQuotas from './pages/bpp_admin/BPPAdminQuotas';
+import BPPAdminReports from './pages/bpp_admin/BPPAdminReports';
+import BPPAdminConfiguration from './pages/bpp_admin/BPPAdminConfiguration';
+import BPPAdminAnalytics from './pages/bpp_admin/BPPAdminAnalytics';
+import BPPAdminSettings from './pages/bpp_admin/BPPAdminSettings';
+
 // Protected route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   // This is a simple mock implementation
@@ -294,6 +305,19 @@ function App() {
               <Route path="geolocation" element={<EvaluatorGeolocation />} />
               <Route path="analytics" element={<EvaluatorAnalytics />} />
               <Route path="settings" element={<EvaluatorSettings />} />
+            </Route>
+
+            {/* BPP Admin Routes */}
+            <Route path="/bpp_admin" element={<ProtectedRoute><BPPAdminLayout /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/bpp_admin/dashboard" replace />} />
+              <Route path="dashboard" element={<BPPAdminDashboard />} />
+              <Route path="profile" element={<BPPAdminProfile />} />
+              <Route path="tenders" element={<BPPAdminTenders />} />
+              <Route path="quotas" element={<BPPAdminQuotas />} />
+              <Route path="reports" element={<BPPAdminReports />} />
+              <Route path="configuration" element={<BPPAdminConfiguration />} />
+              <Route path="analytics" element={<BPPAdminAnalytics />} />
+              <Route path="settings" element={<BPPAdminSettings />} />
             </Route>
 
             {/* Catch all route */}

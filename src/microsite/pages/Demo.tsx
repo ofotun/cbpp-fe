@@ -26,12 +26,21 @@ import { useNavigate } from 'react-router-dom';
 const demoRoles = [
   {
     id: 'admin',
-    title: 'Demo Admin',
-    description: 'Full platform administration and oversight',
+    title: 'Demo Super Admin',
+    description: 'Highest level system administration',
     icon: AdminIcon,
     color: '#1976d2',
     active: true,
     path: '/app/dashboard',
+  },
+  {
+    id: 'bpp_admin',
+    title: 'Demo BPP Admin',
+    description: 'Tender management and system configuration',
+    icon: AdminIcon,
+    color: '#1565c0',
+    active: true,
+    path: '/bpp_admin/dashboard',
   },
   {
     id: 'contractor',
@@ -226,14 +235,21 @@ export const DemoPage: React.FC = () => {
                       sx={{
                         py: 3,
                         px: 2,
+                        height: 160,
                         flexDirection: 'column',
                         gap: 1,
                         borderRadius: 2,
                         border: role.active ? 'none' : `2px solid ${theme.palette.grey[300]}`,
-                        backgroundColor: role.active ? role.color : 'transparent',
-                        color: role.active ? 'white' : theme.palette.text.secondary,
+                        backgroundColor: role.active 
+                          ? `${role.color}15`
+                          : 'transparent',
+                        color: role.active 
+                          ? role.color
+                          : theme.palette.text.secondary,
                         '&:hover': {
-                          backgroundColor: role.active ? role.color : theme.palette.grey[100],
+                          backgroundColor: role.active 
+                            ? `${role.color}25`
+                            : theme.palette.grey[100],
                           transform: role.active ? 'translateY(-2px)' : 'none',
                           boxShadow: role.active ? theme.shadows[4] : 'none',
                         },

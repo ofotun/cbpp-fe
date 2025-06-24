@@ -19,7 +19,8 @@ import {
 import { useAppContext } from '../contexts/AppContext';
 
 const userTypes = [
-  { value: 'admin', label: 'Administrator' },
+  { value: 'admin', label: 'Super Admin' },
+  { value: 'bpp_admin', label: 'BPP Admin' },
   { value: 'procurement_officer', label: 'Procurement Officer' },
   { value: 'cbo_manager', label: 'CBO Manager' },
   { value: 'project_manager', label: 'Project Manager' },
