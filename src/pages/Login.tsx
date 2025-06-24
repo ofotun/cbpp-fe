@@ -24,7 +24,8 @@ const userTypes = [
   { value: 'cbo_manager', label: 'CBO Manager' },
   { value: 'project_manager', label: 'Project Manager' },
   { value: 'contractor', label: 'Contractor' },
-  { value: 'regulator', label: 'Regulator' }
+  { value: 'regulator', label: 'Regulator' },
+  { value: 'evaluator', label: 'Evaluator' }
 ];
 
 const Login: React.FC = () => {
@@ -46,6 +47,7 @@ const Login: React.FC = () => {
         name: username,
         email: `${username}@cbpp.gov.ng`,
         role: userTypes.find(type => type.value === userType)?.label || '',
+        userType: userType, // Add userType for role-based routing
         organization: 'Bureau of Public Procurement',
         department: userType === 'admin' ? 'Administration' : 'Procurement Department',
         lastLogin: new Date().toISOString(),
@@ -57,8 +59,14 @@ const Login: React.FC = () => {
       // Store in localStorage for auth persistence
       localStorage.setItem('user', JSON.stringify(userData));
       
-      // Navigate to dashboard
-      navigate('/app/dashboard');
+      // Role-based routing
+      if (userType === 'admin') {
+        // Administrator goes to current dashboard
+        navigate('/app/dashboard');
+      } else {
+        // All other users go to their role-specific routes
+        navigate(`/${userType}/dashboard`);
+      }
     } else {
       setError('Please fill in all fields');
     }
