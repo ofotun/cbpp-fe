@@ -1,4 +1,8 @@
-declare module './BPPAdminTenders' {
-  const BPPAdminTenders: React.FC;
-  export default BPPAdminTenders;
-} 
+import React from 'react';
+
+interface BPPAdminTendersProps {
+  children?: React.ReactNode;
+}
+
+declare const BPPAdminTenders: React.FC<BPPAdminTendersProps>;
+export default BPPAdminTenders; 

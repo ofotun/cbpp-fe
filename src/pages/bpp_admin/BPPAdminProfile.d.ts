@@ -1,4 +1,8 @@
-declare module './BPPAdminProfile' {
-  const BPPAdminProfile: React.FC;
-  export default BPPAdminProfile;
-} 
+import React from 'react';
+
+interface BPPAdminProfileProps {
+  children?: React.ReactNode;
+}
+
+declare const BPPAdminProfile: React.FC<BPPAdminProfileProps>;
+export default BPPAdminProfile; 

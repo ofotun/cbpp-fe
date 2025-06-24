@@ -1,4 +1,8 @@
-declare module './BPPAdminAnalytics' {
-  const BPPAdminAnalytics: React.FC;
-  export default BPPAdminAnalytics;
-} 
+import React from 'react';
+
+interface BPPAdminAnalyticsProps {
+  children?: React.ReactNode;
+}
+
+declare const BPPAdminAnalytics: React.FC<BPPAdminAnalyticsProps>;
+export default BPPAdminAnalytics; 
