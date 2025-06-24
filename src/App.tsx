@@ -16,6 +16,7 @@ import { SignupPage } from './microsite/pages/Signup';
 import { AboutPage } from './microsite/pages/About';
 import { TermsOfServicePage } from './microsite/pages/TermsOfService';
 import { PrivacyPolicyPage } from './microsite/pages/PrivacyPolicy';
+import { DemoPage } from './microsite/pages/Demo';
 import { MicrositeLayout } from './microsite/components/MicrositeLayout';
 import { SignupLayout } from './microsite/components/SignupLayout';
 import CBORegistration from './pages/registration/CBORegistration';
@@ -144,6 +145,7 @@ function App() {
               <Route path="processes" element={<ProcessesPage />} />
               <Route path="faq" element={<FAQPage />} />
               <Route path="partners" element={<StrategicPartnersPage />} />
+              <Route path="demo" element={<DemoPage />} />
               <Route path="terms" element={<TermsOfServicePage />} />
               <Route path="privacy" element={<PrivacyPolicyPage />} />
             </Route>

@@ -68,6 +68,14 @@ const MicrositeLayout = () => {
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton
+            onClick={() => navigate('/demo')}
+            sx={{ textAlign: 'center' }}
+          >
+            <ListItemText primary="Demo" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
             onClick={() => navigate('/signup')}
             sx={{ textAlign: 'center' }}
           >
@@ -148,6 +156,15 @@ const MicrositeLayout = () => {
                   </Button>
                 ))}
                 <LanguageSelector />
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  component={RouterLink}
+                  to="/demo"
+                  sx={{ fontWeight: 600 }}
+                >
+                  Demo
+                </Button>
                 <Button
                   variant="outlined"
                   color="primary"
@@ -235,6 +252,21 @@ const MicrositeLayout = () => {
                 Transform Your Community
               </Typography>
               <List dense disablePadding>
+                <ListItem disablePadding sx={{ mb: 1 }}>
+                  <ListItemButton
+                    component={RouterLink}
+                    to="/demo"
+                    sx={{ p: 0 }}
+                  >
+                    <ListItemText
+                      primary="Demo"
+                      primaryTypographyProps={{
+                        variant: 'body2',
+                        color: 'text.secondary',
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
                 <ListItem disablePadding sx={{ mb: 1 }}>
                   <ListItemButton
                     component={RouterLink}

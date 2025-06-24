@@ -34,9 +34,40 @@ const lgasByState: { [key: string]: string[] } = {
   // Add more states as needed
 };
 
+const sectors = [
+  'Construction',
+  'Information Technology',
+  'Healthcare',
+  'Education',
+  'Agriculture',
+  'Manufacturing',
+  'Transportation',
+  'Energy',
+  'Water & Sanitation',
+  'Telecommunications',
+  'Financial Services',
+  'Real Estate',
+  'Tourism & Hospitality',
+  'Media & Entertainment',
+  'Consulting Services',
+  'Other'
+];
+
+const genders = [
+  'Male',
+  'Female',
+  'Prefer not to say'
+];
+
 interface FormData {
   firstName: string;
   surname: string;
+  businessName: string;
+  cacNumber: string;
+  dateOfIncorporation: string;
+  sector: string;
+  tin: string;
+  gender: string;
   bvn: string;
   state: string;
   lga: string;
@@ -49,6 +80,12 @@ export const SignupPage: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     surname: '',
+    businessName: '',
+    cacNumber: '',
+    dateOfIncorporation: '',
+    sector: '',
+    tin: '',
+    gender: '',
     bvn: '',
     state: '',
     lga: '',
@@ -121,6 +158,13 @@ export const SignupPage: React.FC = () => {
 
             <form onSubmit={handleSubmit}>
               <Grid container spacing={3}>
+                {/* Personal Information Section */}
+                <Grid item xs={12}>
+                  <Typography variant="h6" sx={{ mb: 2, color: 'primary.main' }}>
+                    Personal Information
+                  </Typography>
+                </Grid>
+                
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
@@ -143,7 +187,26 @@ export const SignupPage: React.FC = () => {
                     variant="outlined"
                   />
                 </Grid>
-                <Grid item xs={12}>
+                
+                <Grid item xs={12} sm={6}>
+                  <FormControl fullWidth required>
+                    <InputLabel>Gender</InputLabel>
+                    <Select
+                      name="gender"
+                      value={formData.gender}
+                      label="Gender"
+                      onChange={handleChange}
+                    >
+                      {genders.map((gender) => (
+                        <MenuItem key={gender} value={gender}>
+                          {gender}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                
+                <Grid item xs={12} sm={6}>
                   <TextField
                     required
                     fullWidth
@@ -156,6 +219,93 @@ export const SignupPage: React.FC = () => {
                     helperText="Enter your 11-digit Bank Verification Number"
                   />
                 </Grid>
+
+                {/* Business Information Section */}
+                <Grid item xs={12}>
+                  <Typography variant="h6" sx={{ mb: 2, color: 'primary.main', mt: 2 }}>
+                    Business Information
+                  </Typography>
+                </Grid>
+                
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="Business Name"
+                    name="businessName"
+                    value={formData.businessName}
+                    onChange={handleChange}
+                    variant="outlined"
+                    helperText="Enter your registered business name"
+                  />
+                </Grid>
+                
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="CAC Number"
+                    name="cacNumber"
+                    value={formData.cacNumber}
+                    onChange={handleChange}
+                    variant="outlined"
+                    helperText="Corporate Affairs Commission number"
+                  />
+                </Grid>
+                
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="Date of Incorporation"
+                    name="dateOfIncorporation"
+                    type="date"
+                    value={formData.dateOfIncorporation}
+                    onChange={handleChange}
+                    variant="outlined"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+                </Grid>
+                
+                <Grid item xs={12} sm={6}>
+                  <FormControl fullWidth required>
+                    <InputLabel>Sector</InputLabel>
+                    <Select
+                      name="sector"
+                      value={formData.sector}
+                      label="Sector"
+                      onChange={handleChange}
+                    >
+                      {sectors.map((sector) => (
+                        <MenuItem key={sector} value={sector}>
+                          {sector}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    fullWidth
+                    label="TIN (Optional)"
+                    name="tin"
+                    value={formData.tin}
+                    onChange={handleChange}
+                    variant="outlined"
+                    helperText="Tax Identification Number"
+                  />
+                </Grid>
+
+                {/* Location Information Section */}
+                <Grid item xs={12}>
+                  <Typography variant="h6" sx={{ mb: 2, color: 'primary.main', mt: 2 }}>
+                    Location Information
+                  </Typography>
+                </Grid>
+                
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth required>
                     <InputLabel>State</InputLabel>
@@ -191,6 +341,7 @@ export const SignupPage: React.FC = () => {
                     </Select>
                   </FormControl>
                 </Grid>
+                
                 {error && (
                   <Grid item xs={12}>
                     <Typography color="error" align="center">

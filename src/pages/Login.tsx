@@ -186,6 +186,15 @@ const Login: React.FC = () => {
               <Link
                 component="button"
                 variant="body2"
+                onClick={() => navigate('/demo')}
+                sx={{ ml: 2, mr: 2 }}
+              >
+                Back to Demo
+              </Link>
+              |
+              <Link
+                component="button"
+                variant="body2"
                 onClick={() => navigate('/signup')}
                 sx={{ ml: 2 }}
               >
