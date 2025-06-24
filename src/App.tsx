@@ -40,6 +40,41 @@ import ContractorTraining from './pages/contractor/ContractorTraining';
 import ContractorNotifications from './pages/contractor/ContractorNotifications';
 import ContractorSettings from './pages/contractor/ContractorSettings';
 
+// Procurement Officer Components
+import ProcurementOfficerLayout from './layouts/ProcurementOfficerLayout';
+import ProcurementOfficerDashboard from './pages/procurement_officer/ProcurementOfficerDashboard';
+import ProcurementOfficerProfile from './pages/procurement_officer/ProcurementOfficerProfile';
+import ProcurementOfficerProcurement from './pages/procurement_officer/ProcurementOfficerProcurement';
+import ProcurementOfficerReports from './pages/procurement_officer/ProcurementOfficerReports';
+import ProcurementOfficerSettings from './pages/procurement_officer/ProcurementOfficerSettings';
+
+// CBO Manager Components
+import CBOManagerLayout from './layouts/CBOManagerLayout';
+import CBOManagerDashboard from './pages/cbo_manager/CBOManagerDashboard';
+import CBOManagerProfile from './pages/cbo_manager/CBOManagerProfile';
+import CBOManagerMembers from './pages/cbo_manager/CBOManagerMembers';
+import CBOManagerProjects from './pages/cbo_manager/CBOManagerProjects';
+import CBOManagerReports from './pages/cbo_manager/CBOManagerReports';
+import CBOManagerSettings from './pages/cbo_manager/CBOManagerSettings';
+
+// Project Manager Components
+import ProjectManagerLayout from './layouts/ProjectManagerLayout';
+import ProjectManagerDashboard from './pages/project_manager/ProjectManagerDashboard';
+import ProjectManagerProfile from './pages/project_manager/ProjectManagerProfile';
+import ProjectManagerProjects from './pages/project_manager/ProjectManagerProjects';
+import ProjectManagerTimeline from './pages/project_manager/ProjectManagerTimeline';
+import ProjectManagerReports from './pages/project_manager/ProjectManagerReports';
+import ProjectManagerSettings from './pages/project_manager/ProjectManagerSettings';
+
+// Regulator Components
+import RegulatorLayout from './layouts/RegulatorLayout';
+import RegulatorDashboard from './pages/regulator/RegulatorDashboard';
+import RegulatorProfile from './pages/regulator/RegulatorProfile';
+import RegulatorOversight from './pages/regulator/RegulatorOversight';
+import RegulatorCompliance from './pages/regulator/RegulatorCompliance';
+import RegulatorReports from './pages/regulator/RegulatorReports';
+import RegulatorSettings from './pages/regulator/RegulatorSettings';
+
 // Protected route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   // This is a simple mock implementation
@@ -193,27 +228,46 @@ function App() {
             </Route>
 
             {/* Procurement Officer Routes */}
-            <Route path="/procurement_officer" element={<ProtectedRoute><EmptyDashboard role="procurement_officer" /></ProtectedRoute>}>
+            <Route path="/procurement_officer" element={<ProtectedRoute><ProcurementOfficerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/procurement_officer/dashboard" replace />} />
-              <Route path="dashboard" element={<EmptyDashboard role="procurement_officer" />} />
+              <Route path="dashboard" element={<ProcurementOfficerDashboard />} />
+              <Route path="profile" element={<ProcurementOfficerProfile />} />
+              <Route path="procurement" element={<ProcurementOfficerProcurement />} />
+              <Route path="reports" element={<ProcurementOfficerReports />} />
+              <Route path="settings" element={<ProcurementOfficerSettings />} />
             </Route>
 
             {/* CBO Manager Routes */}
-            <Route path="/cbo_manager" element={<ProtectedRoute><EmptyDashboard role="cbo_manager" /></ProtectedRoute>}>
+            <Route path="/cbo_manager" element={<ProtectedRoute><CBOManagerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/cbo_manager/dashboard" replace />} />
-              <Route path="dashboard" element={<EmptyDashboard role="cbo_manager" />} />
+              <Route path="dashboard" element={<CBOManagerDashboard />} />
+              <Route path="profile" element={<CBOManagerProfile />} />
+              <Route path="members" element={<CBOManagerMembers />} />
+              <Route path="projects" element={<CBOManagerProjects />} />
+              <Route path="reports" element={<CBOManagerReports />} />
+              <Route path="settings" element={<CBOManagerSettings />} />
             </Route>
 
             {/* Project Manager Routes */}
-            <Route path="/project_manager" element={<ProtectedRoute><EmptyDashboard role="project_manager" /></ProtectedRoute>}>
+            <Route path="/project_manager" element={<ProtectedRoute><ProjectManagerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/project_manager/dashboard" replace />} />
-              <Route path="dashboard" element={<EmptyDashboard role="project_manager" />} />
+              <Route path="dashboard" element={<ProjectManagerDashboard />} />
+              <Route path="profile" element={<ProjectManagerProfile />} />
+              <Route path="projects" element={<ProjectManagerProjects />} />
+              <Route path="timeline" element={<ProjectManagerTimeline />} />
+              <Route path="reports" element={<ProjectManagerReports />} />
+              <Route path="settings" element={<ProjectManagerSettings />} />
             </Route>
 
             {/* Regulator Routes */}
-            <Route path="/regulator" element={<ProtectedRoute><EmptyDashboard role="regulator" /></ProtectedRoute>}>
+            <Route path="/regulator" element={<ProtectedRoute><RegulatorLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/regulator/dashboard" replace />} />
-              <Route path="dashboard" element={<EmptyDashboard role="regulator" />} />
+              <Route path="dashboard" element={<RegulatorDashboard />} />
+              <Route path="profile" element={<RegulatorProfile />} />
+              <Route path="oversight" element={<RegulatorOversight />} />
+              <Route path="compliance" element={<RegulatorCompliance />} />
+              <Route path="reports" element={<RegulatorReports />} />
+              <Route path="settings" element={<RegulatorSettings />} />
             </Route>
 
             {/* Catch all route */}
