@@ -27,6 +27,19 @@ import ProjectImplementation from './pages/project/ProjectImplementation';
 import PaymentFinancial from './pages/payment/PaymentFinancial';
 import AnalyticsReporting from './pages/analytics/AnalyticsReporting';
 
+// Contractor Components
+import ContractorLayout from './layouts/ContractorLayout';
+import ContractorDashboard from './pages/contractor/ContractorDashboard';
+import ContractorProfile from './pages/contractor/ContractorProfile';
+import ContractorTenders from './pages/contractor/ContractorTenders';
+import ContractorContracts from './pages/contractor/ContractorContracts';
+import ContractorPlatformPayments from './pages/contractor/ContractorPlatformPayments';
+import ContractorContractPayments from './pages/contractor/ContractorContractPayments';
+import ContractorReports from './pages/contractor/ContractorReports';
+import ContractorTraining from './pages/contractor/ContractorTraining';
+import ContractorNotifications from './pages/contractor/ContractorNotifications';
+import ContractorSettings from './pages/contractor/ContractorSettings';
+
 // Protected route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   // This is a simple mock implementation
@@ -161,9 +174,22 @@ function App() {
             </Route>
 
             {/* Contractor Routes */}
-            <Route path="/contractor" element={<ProtectedRoute><EmptyDashboard role="contractor" /></ProtectedRoute>}>
+            <Route path="/contractor" element={<ProtectedRoute><ContractorLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="/contractor/dashboard" replace />} />
-              <Route path="dashboard" element={<EmptyDashboard role="contractor" />} />
+              <Route path="dashboard" element={<ContractorDashboard />} />
+              <Route path="profile" element={<ContractorProfile />} />
+              <Route path="procurement">
+                <Route path="tenders" element={<ContractorTenders />} />
+                <Route path="contracts" element={<ContractorContracts />} />
+              </Route>
+              <Route path="payments">
+                <Route path="platform" element={<ContractorPlatformPayments />} />
+                <Route path="contracts" element={<ContractorContractPayments />} />
+              </Route>
+              <Route path="reports" element={<ContractorReports />} />
+              <Route path="training" element={<ContractorTraining />} />
+              <Route path="notifications" element={<ContractorNotifications />} />
+              <Route path="settings" element={<ContractorSettings />} />
             </Route>
 
             {/* Procurement Officer Routes */}
