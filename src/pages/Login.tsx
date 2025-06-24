@@ -24,7 +24,8 @@ const userTypes = [
   { value: 'cbo_manager', label: 'CBO Manager' },
   { value: 'project_manager', label: 'Project Manager' },
   { value: 'contractor', label: 'Contractor' },
-  { value: 'regulator', label: 'Regulator' }
+  { value: 'regulator', label: 'Regulator' },
+  { value: 'evaluator', label: 'Evaluator' }
 ];
 
 const Login: React.FC = () => {

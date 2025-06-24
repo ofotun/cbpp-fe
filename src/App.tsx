@@ -75,6 +75,17 @@ import RegulatorCompliance from './pages/regulator/RegulatorCompliance';
 import RegulatorReports from './pages/regulator/RegulatorReports';
 import RegulatorSettings from './pages/regulator/RegulatorSettings';
 
+// Evaluator Components
+import EvaluatorLayout from './layouts/EvaluatorLayout';
+import EvaluatorDashboard from './pages/evaluator/EvaluatorDashboard';
+import EvaluatorProfile from './pages/evaluator/EvaluatorProfile';
+import EvaluatorEvaluations from './pages/evaluator/EvaluatorEvaluations';
+import EvaluatorScoring from './pages/evaluator/EvaluatorScoring';
+import EvaluatorFilters from './pages/evaluator/EvaluatorFilters';
+import EvaluatorGeolocation from './pages/evaluator/EvaluatorGeolocation';
+import EvaluatorAnalytics from './pages/evaluator/EvaluatorAnalytics';
+import EvaluatorSettings from './pages/evaluator/EvaluatorSettings';
+
 // Protected route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   // This is a simple mock implementation
@@ -268,6 +279,19 @@ function App() {
               <Route path="compliance" element={<RegulatorCompliance />} />
               <Route path="reports" element={<RegulatorReports />} />
               <Route path="settings" element={<RegulatorSettings />} />
+            </Route>
+
+            {/* Evaluator Routes */}
+            <Route path="/evaluator" element={<ProtectedRoute><EvaluatorLayout /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/evaluator/dashboard" replace />} />
+              <Route path="dashboard" element={<EvaluatorDashboard />} />
+              <Route path="profile" element={<EvaluatorProfile />} />
+              <Route path="evaluations" element={<EvaluatorEvaluations />} />
+              <Route path="scoring" element={<EvaluatorScoring />} />
+              <Route path="filters" element={<EvaluatorFilters />} />
+              <Route path="geolocation" element={<EvaluatorGeolocation />} />
+              <Route path="analytics" element={<EvaluatorAnalytics />} />
+              <Route path="settings" element={<EvaluatorSettings />} />
             </Route>
 
             {/* Catch all route */}
