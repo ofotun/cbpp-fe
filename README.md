@@ -1,18 +1,18 @@
 # Community-Based Procurement Platform (CBPP)
 
-A comprehensive digital ecosystem for managing community-based procurement processes in Nigeria and across Africa. 
+A comprehensive digital ecosystem for managing community-based procurement processes in Nigeria. 
 The platform enables community-based organizations (CBOs) to participate in government procurement processes up to ₦50 million in value, in alignment with President Bola Ahmed Tinubu's Renewed Hope Initiative.
 
 ## 🌟 Features
 
-- **Multi-Tenant Architecture**: Supports Federal, State, and LGA levels across multiple African countries
+- **Government-Focused Architecture**: Supports Federal, State, and LGA levels across Nigeria
 - **Role-Based Access Control**: Eight distinct user roles with tailored dashboards and workflows
 - **CBO Registration & Management**: Digital onboarding and qualification system
 - **Procurement Process Management**: End-to-end procurement workflow
 - **Project Implementation Tracking**: Real-time progress monitoring
 - **Payment & Financial Management**: Secure payment processing and tracking
 - **Analytics & Reporting**: Comprehensive dashboards and visualizations
-- **Multi-Language Support**: Built-in internationalization
+- **Multi-Language Support**: Built-in internationalization for Nigerian languages
 - **Mobile-First Design**: Progressive Web App capabilities
 - **Interactive Demo System**: Role-based demo experiences for testing and training
 
@@ -157,7 +157,7 @@ src/
 
 ## 🌐 Internationalization
 
-The platform supports multiple languages through i18next. Language files are located in the `src/locales` directory.
+The platform supports multiple Nigerian languages through i18next. Language files are located in the `src/locales` directory.
 
 **Supported Languages:**
 - English (en)
@@ -224,6 +224,6 @@ For support, please contact the development team or raise an issue in the reposi
 
 ---
 
-*Last Updated: December 2024*  
+*Last Updated: June 2025*  
 *Platform Version: 2.0*  
 *Role-Based Architecture: Implemented*
