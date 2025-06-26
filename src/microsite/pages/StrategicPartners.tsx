@@ -37,6 +37,7 @@ export const StrategicPartnersPage: React.FC = () => {
         'Economic and Financial Crimes Commission (EFCC)',
         'Independent Corrupt Practices Commission (ICPC)',
         'National Information Technology Development Agency (NITDA)',
+        'The Central Results Delivery Coordination Unit (CRDCU)',
       ],
     },
     {
