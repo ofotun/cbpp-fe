@@ -98,6 +98,14 @@ import BPPAdminConfiguration from './pages/bpp_admin/BPPAdminConfiguration';
 import BPPAdminAnalytics from './pages/bpp_admin/BPPAdminAnalytics';
 import BPPAdminSettings from './pages/bpp_admin/BPPAdminSettings';
 
+// Super Admin Components
+import SuperAdminLayout from './layouts/SuperAdminLayout';
+import SuperAdminDashboard from './pages/super_admin/SuperAdminDashboard';
+import SuperAdminProfile from './pages/super_admin/SuperAdminProfile';
+import SuperAdminSettings from './pages/super_admin/SuperAdminSettings';
+import PlatformHealth from './pages/super_admin/system_overview/PlatformHealth';
+import RoleAssumption from './pages/super_admin/system_overview/RoleAssumption';
+
 // Protected route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   // This is a simple mock implementation
@@ -318,6 +326,68 @@ function App() {
               <Route path="configuration" element={<BPPAdminConfiguration />} />
               <Route path="analytics" element={<BPPAdminAnalytics />} />
               <Route path="settings" element={<BPPAdminSettings />} />
+            </Route>
+
+            {/* Super Admin Routes */}
+            <Route path="/super-admin" element={<ProtectedRoute><SuperAdminLayout /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/super-admin/dashboard" replace />} />
+              <Route path="dashboard" element={<SuperAdminDashboard />} />
+              <Route path="profile" element={<SuperAdminProfile />} />
+              <Route path="settings" element={<SuperAdminSettings />} />
+              
+              {/* System Overview Routes */}
+              <Route path="system-overview">
+                <Route path="platform-health" element={<PlatformHealth />} />
+                <Route path="user-management" element={<div>User Management (Coming Soon)</div>} />
+                <Route path="role-assumption" element={<RoleAssumption />} />
+              </Route>
+              
+              {/* Procurement Routes */}
+              <Route path="procurement">
+                <Route path="overview" element={<div>Procurement Overview (Coming Soon)</div>} />
+                <Route path="tenders" element={<div>Procurement Tenders (Coming Soon)</div>} />
+                <Route path="contracts" element={<div>Procurement Contracts (Coming Soon)</div>} />
+                <Route path="analytics" element={<div>Procurement Analytics (Coming Soon)</div>} />
+              </Route>
+              
+              {/* Financial Routes */}
+              <Route path="financial">
+                <Route path="budget" element={<div>Financial Budget (Coming Soon)</div>} />
+                <Route path="payments" element={<div>Financial Payments (Coming Soon)</div>} />
+                <Route path="reporting" element={<div>Financial Reporting (Coming Soon)</div>} />
+              </Route>
+              
+              {/* Compliance Routes */}
+              <Route path="compliance">
+                <Route path="oversight" element={<div>Compliance Oversight (Coming Soon)</div>} />
+                <Route path="audits" element={<div>Compliance Audits (Coming Soon)</div>} />
+                <Route path="regulations" element={<div>Compliance Regulations (Coming Soon)</div>} />
+              </Route>
+              
+              {/* Analytics Routes */}
+              <Route path="analytics">
+                <Route path="platform" element={<div>Platform Analytics (Coming Soon)</div>} />
+                <Route path="performance" element={<div>Performance Analytics (Coming Soon)</div>} />
+                <Route path="insights" element={<div>AI Insights (Coming Soon)</div>} />
+              </Route>
+              
+              {/* Configuration Routes */}
+              <Route path="configuration">
+                <Route path="system" element={<div>System Configuration (Coming Soon)</div>} />
+                <Route path="security" element={<div>Security Configuration (Coming Soon)</div>} />
+                <Route path="integrations" element={<div>Integrations Configuration (Coming Soon)</div>} />
+              </Route>
+              
+              {/* Role Management Routes */}
+              <Route path="role-management">
+                <Route path="bpp-admin" element={<div>BPP Admin Functions (Coming Soon)</div>} />
+                <Route path="procurement-officer" element={<div>Procurement Officer Functions (Coming Soon)</div>} />
+                <Route path="cbo-manager" element={<div>CBO Manager Functions (Coming Soon)</div>} />
+                <Route path="project-manager" element={<div>Project Manager Functions (Coming Soon)</div>} />
+                <Route path="contractor" element={<div>Contractor Functions (Coming Soon)</div>} />
+                <Route path="regulator" element={<div>Regulator Functions (Coming Soon)</div>} />
+                <Route path="evaluator" element={<div>Evaluator Functions (Coming Soon)</div>} />
+              </Route>
             </Route>
 
             {/* Catch all route */}

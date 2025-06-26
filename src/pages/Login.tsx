@@ -19,7 +19,8 @@ import {
 import { useAppContext } from '../contexts/AppContext';
 
 const userTypes = [
-  { value: 'admin', label: 'Super Admin' },
+  { value: 'admin', label: 'Administrator' },
+  { value: 'super_admin', label: 'Super Admin' },
   { value: 'bpp_admin', label: 'BPP Admin' },
   { value: 'procurement_officer', label: 'Procurement Officer' },
   { value: 'cbo_manager', label: 'CBO Manager' },
@@ -50,7 +51,7 @@ const Login: React.FC = () => {
         role: userTypes.find(type => type.value === userType)?.label || '',
         userType: userType, // Add userType for role-based routing
         organization: 'Bureau of Public Procurement',
-        department: userType === 'admin' ? 'Administration' : 'Procurement Department',
+        department: userType === 'admin' ? 'Administration' : userType === 'super_admin' ? 'System Administration' : 'Procurement Department',
         lastLogin: new Date().toISOString(),
       };
       
@@ -64,6 +65,9 @@ const Login: React.FC = () => {
       if (userType === 'admin') {
         // Administrator goes to current dashboard
         navigate('/app/dashboard');
+      } else if (userType === 'super_admin') {
+        // Super Admin goes to super admin dashboard
+        navigate('/super-admin/dashboard');
       } else {
         // All other users go to their role-specific routes
         navigate(`/${userType}/dashboard`);
