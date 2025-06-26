@@ -4,13 +4,7 @@
 ### Project Overview
 Implementing a comprehensive super admin dashboard experience for the Community-Based Procurement Platform (CBPP). This document outlines the plan for implementing the Super Admin role dashboard and navigation system, which provides access to all system functions and user role capabilities.
 
-### Current State
-- Super admin routes directly to `/app` after login
-- Access to all general system pages and functions
-- No dedicated super admin folder structure
-- Generic navigation menu shared with other admin roles
-
-### Target State
+### Goal
 - Dedicated super admin routing (`/super-admin/...`)
 - Comprehensive dashboard with access to all user role functions
 - Role assumption capabilities for system administration

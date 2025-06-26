@@ -26,12 +26,21 @@ import { useNavigate } from 'react-router-dom';
 const demoRoles = [
   {
     id: 'admin',
-    title: 'Demo Super Admin',
-    description: 'Highest level system administration',
+    title: 'Demo Administrator',
+    description: 'System administration and management',
     icon: AdminIcon,
     color: '#1976d2',
     active: true,
     path: '/app/dashboard',
+  },
+  {
+    id: 'super_admin',
+    title: 'Demo Super Admin',
+    description: 'Highest level system administration with full access',
+    icon: AdminIcon,
+    color: '#9c27b0',
+    active: true,
+    path: '/super-admin/dashboard',
   },
   {
     id: 'bpp_admin',
@@ -106,6 +115,12 @@ export const DemoPage: React.FC = () => {
   const handleDemoLogin = (role: typeof demoRoles[0]) => {
     if (role.active) {
       // Create mock user data for the selected role
+      const getDepartment = (userType: string) => {
+        if (userType === 'admin') return 'Administration';
+        if (userType === 'super_admin') return 'System Administration';
+        return 'Procurement Department';
+      };
+
       const mockUserData = {
         id: `demo-${role.id}-001`,
         name: `Demo ${role.title.split(' ')[1]}`,
@@ -113,7 +128,7 @@ export const DemoPage: React.FC = () => {
         role: role.title,
         userType: role.id,
         organization: 'Bureau of Public Procurement',
-        department: role.id === 'admin' ? 'Administration' : 'Procurement Department',
+        department: getDepartment(role.id),
         lastLogin: new Date().toISOString(),
       };
       

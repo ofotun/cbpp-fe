@@ -4,12 +4,7 @@
 ### Project Overview
 Implementing role-based dashboard experiences for the Community-Based Procurement Platform (CBPP). This document outlines the plan for implementing the Project Manager role dashboard and navigation system.
 
-### Current State
-- Default dashboard and navigation designed for Administrator role
-- Single route structure (`/app/...`) for all users
-- Generic navigation menu for all user types
-
-### Target State
+### Goal
 - Role-based routing (`/project-manager/...`, `/admin/...`, etc.)
 - Unique dashboard experiences for each user role
 - Role-specific navigation menus and page access
