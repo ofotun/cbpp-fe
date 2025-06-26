@@ -21,7 +21,7 @@
 ## 1. Executive Summary
 
 ### 1.1 System Overview
-The Community-Based Procurement Platform (CBPP) is a comprehensive digital ecosystem designed to manage end-to-end procurement processes for projects implemented at various government levels in Nigeria and across Africa. The platform facilitates registration, qualification, and training of Community-Based Organizations (CBOs) and Procurement Compliance Officers (PCOs), interfaces with budget systems, enables transparent procurement processes, and provides monitoring and reporting capabilities. The multi-tenant architecture allows for customization to meet the specific needs of different government entities while maintaining core features and compliance standards.
+The Community-Based Procurement Platform (CBPP) is a comprehensive digital ecosystem designed to manage end-to-end procurement processes for projects implemented at various government levels in Nigeria. The platform facilitates registration, qualification, and training of Community-Based Organizations (CBOs) and Procurement Compliance Officers (PCOs), interfaces with budget systems, enables transparent procurement processes, and provides monitoring and reporting capabilities. The architecture is designed to meet the specific needs of Nigerian government entities while maintaining core features and compliance standards.
 
 ### 1.2 Key Statistics
 | Metric | Value | Notes |
@@ -35,9 +35,9 @@ The Community-Based Procurement Platform (CBPP) is a comprehensive digital ecosy
 
 ### 1.3 System Scope
 - **Business Domain:** Government Procurement and Community Development
-- **Geographic Coverage:** Nigeria (initially), expandable to other African countries
+- **Geographic Coverage:** Nigeria
 - **Integration Points:** 10+ external systems (budget, payment, regulatory, etc.)
-- **Deployment Model:** Cloud-based multi-tenant architecture
+- **Deployment Model:** Cloud-based architecture for Nigerian government
 
 ---
 
@@ -498,11 +498,10 @@ graph TD
 | MOD-008 | Compliance | Regulatory compliance, audit | Active | All modules | Compliance Team |
 | MOD-009 | Training | E-learning, certification | Active | Registration | Training Team |
 | MOD-010 | Microsite | Public information portal | Active | None | Marketing Team |
-| MOD-011 | Multi-Tenancy | Tenant management, isolation | Active | All modules | System Team |
-| MOD-012 | Integration | External system connectivity | Active | All modules | Integration Team |
-| MOD-013 | Notification | System notifications, alerts | Active | All modules | System Team |
-| MOD-014 | Security | Security framework, monitoring | Active | All modules | Security Team |
-| MOD-015 | Monitoring | System health, performance | Active | All modules | DevOps Team |
+| MOD-011 | Integration | External system connectivity | Active | All modules | Integration Team |
+| MOD-012 | Notification | System notifications, alerts | Active | All modules | System Team |
+| MOD-013 | Security | Security framework, monitoring | Active | All modules | Security Team |
+| MOD-014 | Monitoring | System health, performance | Active | All modules | DevOps Team |
 
 ### 4.2 Core Business Modules
 
@@ -605,7 +604,7 @@ graph TD
 #### 4.3.3 Integration Module
 - **Purpose:** External system connectivity and data exchange
 - **Key Functions:**
-  - API management with tenant-aware routing
+  - API management with routing
   - Data transformation and validation
   - Error handling and retry logic
   - Integration monitoring and health checks
@@ -1150,7 +1149,7 @@ flowchart TD
 |----------|------------------|----------------|----------|-----------------|
 | Database | 500GB | 2TB | Q2 2025 | Scale up storage |
 | API Gateway | 1000 req/min | 3000 req/min | Q3 2025 | Load balancer upgrade |
-| User Licenses | 10,000 | 25,000 | Q4 2025 | License expansion |
+| User Licenses | 10,000 | 25,000 | Q4 2025 | Additional licenses for Nigerian government agencies |
 
 ---
 

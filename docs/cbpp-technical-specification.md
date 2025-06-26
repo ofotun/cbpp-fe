@@ -10,9 +10,9 @@
 - **Status:** Draft
 
 ## Document History
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | December 2024 | ASOS Consulting | Initial version with multi-tenant architecture |
+| Version | Date | Author | Changes | Reviewer |
+|---------|------|--------|---------|----------|
+| 1.0 | December 2024 | ASOS Consulting | Initial version | [Reviewer] |
 | 2.0 | December 2024 | ASOS Consulting | Revised for Nigeria-specific implementation |
 
 ---
@@ -22,10 +22,20 @@
 ### 1.1 Project Overview
 The Community-Based Procurement Platform (CBPP) is a comprehensive digital ecosystem designed to manage end-to-end procurement processes for projects implemented at various government levels in Nigeria. The platform facilitates registration, qualification, and training of Community-Based Organizations (CBOs) and Procurement Compliance Officers (PCOs), interfaces with Nigerian budget systems, enables transparent procurement processes, and provides monitoring and reporting capabilities. The platform is specifically designed for the Nigerian Bureau of Public Procurement (BPP) to support President Bola Ahmed Tinubu's Renewed Hope Initiative and enable CBOs to participate in government procurement up to ₦50 million.
 
-### 1.2 Scope
-This technical specification covers the complete CBPP system for Nigeria including:
-- **Included:** All 15 system modules, integration frameworks, security implementation, mobile accessibility, localization support for Nigerian languages
-- **Excluded:** Multi-tenant architecture, third-party system implementations, hardware procurement, physical infrastructure setup
+### 1.2 Scope and Limitations
+
+#### 1.3.1 In Scope
+- **Core Platform:** Complete CBPP system for Nigerian government procurement
+- **User Management:** All 8 user types with role-based access control
+- **Business Processes:** 15 core modules covering procurement lifecycle
+- **Integration:** 10+ external system integrations
+- **Security:** Comprehensive security framework and compliance
+- **Deployment:** Cloud-based deployment for Nigerian government
+
+#### 1.3.2 Out of Scope
+- **Excluded:** Third-party system implementations, hardware procurement, physical infrastructure setup
+- **Future Considerations:** Potential expansion to other government levels within Nigeria
+- **Limitations:** Architecture optimized for Nigerian government requirements
 
 ### 1.3 Key Stakeholders
 | Role | Name | Responsibility |
@@ -57,7 +67,7 @@ This technical specification covers the complete CBPP system for Nigeria includi
 ### 2.3 Constraints
 - **Time Constraints:** 12-month development timeline with phased rollout
 - **Budget Constraints:** Optimized for cost-effective cloud deployment
-- **Resource Constraints:** Single-tenant architecture optimized for Nigerian government requirements
+- **Resource Constraints:** Architecture optimized for Nigerian government requirements
 - **Regulatory Constraints:** Must comply with Nigerian procurement laws, data protection regulations, and BPP guidelines
 
 ---
